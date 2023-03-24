@@ -19,4 +19,9 @@ public class Target : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    public float GetHealth()
+    {
+        return health;
+    }
 }

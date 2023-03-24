@@ -70,6 +70,9 @@ public class BasicEnemyMovement : MonoBehaviour
 
         if(!alreadyAttacked)
         {
+
+            var target = player.GetComponent<Target>();
+            target.TakeDamage(10f);
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
