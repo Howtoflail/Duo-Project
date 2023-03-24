@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class BasicEnemyMovement : MonoBehaviour
 {
+    //Animation
+    private Animator animator;
     // Start is called before the first frame update
     public NavMeshAgent agent;
     public Transform player;
@@ -27,11 +29,13 @@ public class BasicEnemyMovement : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        animator.SetFloat("Speed", 1);
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
@@ -73,6 +77,7 @@ public class BasicEnemyMovement : MonoBehaviour
 
             var target = player.GetComponent<Target>();
             target.TakeDamage(10f);
+            animator.SetBool("IsAttacking", true);
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
@@ -81,6 +86,7 @@ public class BasicEnemyMovement : MonoBehaviour
     private void ResetAttack()
     {
         alreadyAttacked = false;
+        animator.SetBool("IsAttacking", false);
     }
     private void LookForWalkPoint()
     {
