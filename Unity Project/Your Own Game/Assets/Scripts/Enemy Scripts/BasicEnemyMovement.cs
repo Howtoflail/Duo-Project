@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public class BasicEnemyMovement : MonoBehaviour
 {
     //Animation
+    private float currentSpeed;
+    private Vector3 previousPosition;
     private Animator animator;
     // Start is called before the first frame update
     public NavMeshAgent agent;
@@ -34,8 +36,13 @@ public class BasicEnemyMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        animator.SetFloat("Speed", 1);
+    {   
+        Vector3 curMove = transform.position - previousPosition;
+        currentSpeed = curMove.magnitude / Time.deltaTime;
+        previousPosition = transform.position;
+
+        animator.SetFloat("Speed", currentSpeed);
+
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
@@ -43,6 +50,7 @@ public class BasicEnemyMovement : MonoBehaviour
         if(playerInSightRange && !playerInAttackRange) ChasingPlayer();
         if(playerInAttackRange && playerInSightRange) AttackingPlayer();
     }
+    
 
     private void Patroling()
     {

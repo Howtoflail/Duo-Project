@@ -1,22 +1,23 @@
-    using System.Collections;
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
-public class Target : MonoBehaviour
+public class TargetWithAnimation : MonoBehaviour
 {
-    [SerializeField]
-    private float health = 50f;
+    [SerializeField] private float health = 50f;
     [SerializeField] private float deathAnimationDuration = 3f;
+
+    private float animationTime;
     private Animator animator;
-
-    private BasicEnemyMovement enemyMovement;
-    
-
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        enemyMovement = GetComponent<BasicEnemyMovement>();
+        animator.SetBool("isAlive", true);
+    }
+
+    private void Update()
+    {    
     }
 
     public void TakeDamage(float damage)
@@ -24,16 +25,21 @@ public class Target : MonoBehaviour
         health -= damage;
         if (health <= 0f)
         {
+            
             animator.SetTrigger("Die");
-            enemyMovement.enabled = false;
-            gameObject.GetComponent<NavMeshAgent>().isStopped = true;
             Die();
         }
     }
 
     void Die()
     {
-        Destroy(gameObject, deathAnimationDuration);
+        Destroy(gameObject);
+        Destroy(gameObject.transform.GetChild(0).gameObject);
+    }
+
+    void DieWithAnimation(float delay)
+    {
+        
     }
 
     public float GetHealth()
@@ -41,3 +47,4 @@ public class Target : MonoBehaviour
         return health;
     }
 }
+
