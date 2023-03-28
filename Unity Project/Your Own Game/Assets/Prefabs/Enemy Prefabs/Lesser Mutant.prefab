@@ -393,7 +393,7 @@ GameObject:
   - component: {fileID: 3071545820284200809}
   - component: {fileID: 3071545820284200813}
   m_Layer: 0
-  m_Name: Zombie1
+  m_Name: Lesser Mutant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
