@@ -13,6 +13,8 @@ public class MainGun : MonoBehaviour
     [SerializeField] private AudioClip rifleShotClip;
     [SerializeField] private AudioClip rifleCockClip;
     [SerializeField] private AudioClip rifleReloadClip;
+    [SerializeField] private ParticleSystem muzzleFlash;
+    [SerializeField] private Light muzzleLight;
 
     private Text ammoText;
     private GameObject ammoTextObject;
@@ -42,13 +44,25 @@ public class MainGun : MonoBehaviour
     void Update()
     {
         //Displaying ammo
+        //Fix constantly updating this text
         ammoText.text = currentMagazineAmmo.ToString() + "/" + allAmmo.ToString();
 
+        //Stopping the muzzle light from being on at all times
+        if (muzzleFlash.isPlaying == true)
+        {
+            muzzleLight.enabled = true;
+        }
+        else
+        {
+            muzzleLight.enabled = false;
+        }
+
         //GetKeyDown is used because of the bolt action system
-        if(Input.GetKeyDown(KeyCode.Mouse0) && Time.time >= nextTimeToFire && currentMagazineAmmo > 0f && isReloading == false)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time >= nextTimeToFire && currentMagazineAmmo > 0f && isReloading == false)
         {
             nextTimeToFire = Time.time + fireRate;
             Shoot();
+            
 
             //play audio
             float currentAudioClipDuration = rifleShotClip.length;
@@ -134,6 +148,7 @@ public class MainGun : MonoBehaviour
 
     void Shoot()
     {
+        muzzleFlash.Play();
         currentMagazineAmmo--;
         shotTime = Time.time;
 
