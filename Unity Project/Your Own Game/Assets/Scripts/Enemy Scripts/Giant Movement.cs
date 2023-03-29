@@ -35,6 +35,7 @@ public class GiantMovement : EnemyMovement
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        alreadyAttacked = false;
     }
 
     // Update is called once per frame
@@ -81,12 +82,15 @@ public class GiantMovement : EnemyMovement
     {
         agent.SetDestination(transform.position);
 
-        transform.LookAt(player);
+        // transform.LookAt(player);
+        Vector3 rot = Quaternion.LookRotation(player.position - transform.position).eulerAngles;
+        rot.x = rot.z = 0;
+        transform.rotation = Quaternion.Euler(rot);
 
-        if(!alreadyAttacked)
+        if (!alreadyAttacked)
         {
-
-            thrower.Throw();
+            var target = player.GetComponent<Target>();
+            target.TakeDamage(10f);
             animator.SetBool("IsAttacking", true);
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);

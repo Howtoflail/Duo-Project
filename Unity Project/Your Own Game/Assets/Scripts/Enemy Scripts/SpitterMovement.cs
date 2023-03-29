@@ -81,7 +81,10 @@ public class SpitterMovement : EnemyMovement
     {
         agent.SetDestination(transform.position);
 
-        transform.LookAt(player);
+        // transform.LookAt(player);
+        Vector3 rot = Quaternion.LookRotation(player.position - transform.position).eulerAngles;
+        rot.x = rot.z = 0;
+        transform.rotation = Quaternion.Euler(rot);
 
         if(!alreadyAttacked)
         {

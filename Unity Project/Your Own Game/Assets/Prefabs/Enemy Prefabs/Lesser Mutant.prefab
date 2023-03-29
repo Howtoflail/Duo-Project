@@ -388,10 +388,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2496855626777665935}
   - component: {fileID: 5488937104959343861}
-  - component: {fileID: 3071545820284200816}
   - component: {fileID: 3071545820284200821}
   - component: {fileID: 3071545820284200809}
   - component: {fileID: 3071545820284200813}
+  - component: {fileID: 2737799687385765058}
   m_Layer: 0
   m_Name: Lesser Mutant
   m_TagString: Untagged
@@ -407,8 +407,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1512581852803781532}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.41607, z: 7.75}
-  m_LocalScale: {x: 1.5793, y: 1.5210133, z: 1.3145}
+  m_LocalPosition: {x: -12.48, y: 0.1, z: -8.76}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 23871102572190004}
@@ -449,33 +449,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &3071545820284200816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1512581852803781532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cb49da9e46441e498c310bbe8df76fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 3071545820284200821}
-  player: {fileID: 0}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 128
-  walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 25
-  timeBetweenAttacks: 1
-  sightRange: 20
-  attackRange: 3
-  playerInSightRange: 0
-  playerInAttackRange: 0
 --- !u!195 &3071545820284200821
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -486,7 +459,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -535,6 +508,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 9
   deathAnimationDuration: 2
+--- !u!114 &2737799687385765058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512581852803781532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cb49da9e46441e498c310bbe8df76fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 3071545820284200821}
+  player: {fileID: 0}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 64
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 128
+  walkPoint: {x: 0, y: 0, z: 0}
+  walkPointRange: 15
+  timeBetweenAttacks: 2
+  sightRange: 100
+  attackRange: 1
+  playerInSightRange: 0
+  playerInAttackRange: 0
 --- !u!1 &1622618412402199309
 GameObject:
   m_ObjectHideFlags: 0
