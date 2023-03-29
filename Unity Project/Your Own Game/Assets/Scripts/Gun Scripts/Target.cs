@@ -10,13 +10,13 @@ public class Target : MonoBehaviour
     [SerializeField] private float deathAnimationDuration = 3f;
     private Animator animator;
 
-    private BasicEnemyMovement enemyMovement;
+    private EnemyMovement enemyMovement;
     
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        enemyMovement = GetComponent<BasicEnemyMovement>();
+        enemyMovement = GetComponent<EnemyMovement>();
     }
 
     public void TakeDamage(float damage)
@@ -25,8 +25,8 @@ public class Target : MonoBehaviour
         if (health <= 0f)
         {
             animator.SetTrigger("Die");
-            enemyMovement.enabled = false;
             gameObject.GetComponent<NavMeshAgent>().isStopped = true;
+            Debug.Log("DEAD");
             Die();
         }
     }
