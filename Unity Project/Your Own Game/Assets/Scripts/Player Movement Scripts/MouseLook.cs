@@ -10,9 +10,15 @@ public class MouseLook : MonoBehaviour
     public Transform playerBody;
     public Transform weaponHolder;
     private float xRotation = 0f;
+
+    private void Awake() {
+         Screen.lockCursor = true;
+
+                Cursor.lockState = CursorLockMode.Locked;
+
+    }
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
