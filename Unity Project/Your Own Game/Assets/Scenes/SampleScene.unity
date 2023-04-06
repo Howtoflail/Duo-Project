@@ -463,7 +463,7 @@ MonoBehaviour:
   projectile: {fileID: 9025799162463758401, guid: b9ec0bb92cb69324294224a0614352a7, type: 3}
   totalThrows: 20
   throwCooldown: 0.2
-  throwForce: 70
+  throwForce: 35
   throwForceUp: 2
 --- !u!136 &474354645
 CapsuleCollider:
@@ -480,7 +480,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -548,6 +548,10 @@ PrefabInstance:
       propertyPath: projectile
       value: 
       objectReference: {fileID: 1566600557407381287, guid: 5e81aaf082b464c4c8ee323f11bdbf15, type: 3}
+    - target: {fileID: 8387184760506074763, guid: f415b0a8cf0dae4459d980b49c811bb1, type: 3}
+      propertyPath: throwForceUp
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1031,9 +1035,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 255369804068192920, guid: 498855e4af10936448e54cf7c1de6549, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 255369804068192922, guid: 498855e4af10936448e54cf7c1de6549, type: 3}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 255369804068192922, guid: 498855e4af10936448e54cf7c1de6549, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.323
       objectReference: {fileID: 0}
     - target: {fileID: 255369804068192922, guid: 498855e4af10936448e54cf7c1de6549, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1041,7 +1053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 255369804068192922, guid: 498855e4af10936448e54cf7c1de6549, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2
+      value: 1.65
       objectReference: {fileID: 0}
     - target: {fileID: 255369804068192922, guid: 498855e4af10936448e54cf7c1de6549, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1427,6 +1439,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 474354639}
+    - target: {fileID: 8387184760506074763, guid: f415b0a8cf0dae4459d980b49c811bb1, type: 3}
+      propertyPath: throwForceUp
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
