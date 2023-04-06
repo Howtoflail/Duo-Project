@@ -9,6 +9,8 @@ public class EnemySpawner : MonoBehaviour
 
     //Serializable Fields
     [SerializeField]
+    public int totalMaxSpawns;
+    [SerializeField]
     GameObject prefabEnemy;
 
     [SerializeField]
@@ -29,6 +31,7 @@ public class EnemySpawner : MonoBehaviour
     private float startSpawnDelay;
 
     //PRIVATE
+    private int totalSpawns = 0;
     private List<GameObject> enemies = new List<GameObject>();
     private float timeNextSpawn;
     private Vector3 positionNextSpawn;
@@ -52,10 +55,11 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemiesWithDelay()
     {
-        if (Time.time >= timeNextSpawn && transform.childCount < countMaxEnemies)
+        if (Time.time >= timeNextSpawn && transform.childCount < countMaxEnemies && totalSpawns <= totalMaxSpawns)
         {
             timeNextSpawn = Time.time + delaySpawn;
             SpawnEnemyRandomPosition(prefabEnemy);
+            totalSpawns++;
             RandomizePosistionNextSpawn();
         }
     }

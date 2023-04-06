@@ -92,9 +92,9 @@ public class LesserMovement : EnemyMovement
 
         if (!alreadyAttacked)
         {
+            animator.SetBool("IsAttacking", true);
             var target = player.GetComponent<Target>();
             target.TakeDamage(10f);
-            animator.SetBool("IsAttacking", true);
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }

@@ -88,9 +88,9 @@ public class JoggerMovement : EnemyMovement
 
         if(!alreadyAttacked)
         {
-
-            thrower.Throw();
             animator.SetBool("IsAttacking", true);
+            var target = player.GetComponent<Target>();
+            target.TakeDamage(10f);
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
