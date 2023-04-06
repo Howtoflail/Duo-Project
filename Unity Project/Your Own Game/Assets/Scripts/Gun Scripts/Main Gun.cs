@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
 public class MainGun : MonoBehaviour
@@ -12,15 +13,22 @@ public class MainGun : MonoBehaviour
     [SerializeField] private AudioClip rifleShotClip;
     [SerializeField] private AudioClip rifleCockClip;
     [SerializeField] private AudioClip rifleReloadClip;
+    [SerializeField] private ParticleSystem muzzleFlash;
+    [SerializeField] private Light muzzleLight;
+    [SerializeField] private GameObject impact;
 
+    private Text ammoText;
+    private GameObject ammoTextObject;
     public Camera fpsCam;
     private AudioSource audioSource;
 
     private float nextTimeToFire = 0f;
     private readonly float defaultMagazineSize = 5f;
     private float currentMagazineAmmo = 0f;
+    private float allAmmo = 20f;
     private bool isReloading = false;
     private bool isCocking = false;
+
     private float shotTime = 0f;
     private float waitTime = 3f;
 
@@ -30,36 +38,48 @@ public class MainGun : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         currentMagazineAmmo = defaultMagazineSize;
+        ammoTextObject = GameObject.Find("Canvas/Ammo");
+        ammoText = ammoTextObject.GetComponent<Text>();
     }
 
     void Update()
     {
+        //Displaying ammo
+        //Fix constantly updating this text
+        ammoText.text = currentMagazineAmmo.ToString() + "/" + allAmmo.ToString();
+
+        //Stopping the muzzle light from being on at all times
+        if (muzzleFlash.isPlaying == true)
+        {
+            muzzleLight.enabled = true;
+        }
+        else
+        {
+            muzzleLight.enabled = false;
+        }
+
         //GetKeyDown is used because of the bolt action system
-        if(Input.GetKeyDown(KeyCode.Mouse0) && Time.time >= nextTimeToFire && currentMagazineAmmo > 0)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time >= nextTimeToFire && currentMagazineAmmo > 0f && isReloading == false)
         {
             nextTimeToFire = Time.time + fireRate;
             Shoot();
+            
 
             //play audio
             float currentAudioClipDuration = rifleShotClip.length;
             audioSource.clip = rifleShotClip;
             audioSource.Play();
             Debug.Log(audioSource.clip.name);
-
-            //Cocking coroutine is not needed
-            /*if (audioSource.isPlaying == false && audioSource.clip == rifleCockClip && currentMagazineAmmo > 1f) 
-            {
-                Debug.Log("Current ammo: " + currentMagazineAmmo);
-                Cock();
-            } */ 
         }
-        else if(currentMagazineAmmo <= 0) 
+        //if magazine is empty proceed to reload
+        else if(currentMagazineAmmo <= 0f && allAmmo > 0f) 
         {
-            //This is used to make the reload sound play after the last round is fired properly
-            if(Time.time - shotTime >= waitTime) 
-            {
                 Reload();
-            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.R) && currentMagazineAmmo < 5 && allAmmo > 0f)
+        {
+            Reload();
         }
     }
 
@@ -74,9 +94,9 @@ public class MainGun : MonoBehaviour
 
     IEnumerator CockingCoroutine()
     {
-        float cockingTime = rifleCockClip.length;
+        float cockingTime = shotgunCockClip.length;
 
-        audioSource.PlayOneShot(rifleCockClip);
+        audioSource.PlayOneShot(shotgunCockClip);
         yield return new WaitForSeconds(cockingTime);
         isCocking = false;
     }*/
@@ -86,10 +106,26 @@ public class MainGun : MonoBehaviour
         if(isReloading == false)
         {
             isReloading = true;
-            StartCoroutine(ReloadCoroutine());
 
-            //Cock();
+            float remainingTime = waitTime - (Time.time - shotTime);
+            Debug.Log("Remaining time before reloading: " + remainingTime);
+            if(remainingTime > 0f)
+            {
+                StartCoroutine(WaitAndReloadCoroutine(remainingTime));
+            }
+            else
+            {
+                //Start the reload coroutine immediately if the gunshot clip is not playing or has finished playing
+                StartCoroutine(ReloadCoroutine());
+            }
         }
+    }
+
+    //This coroutine is placed in order to register the need to reload even when the gunshot clip/animation is not done playing
+    IEnumerator WaitAndReloadCoroutine(float remainingTime) 
+    {
+        yield return new WaitForSeconds(remainingTime);
+        StartCoroutine(ReloadCoroutine());
     }
 
     IEnumerator ReloadCoroutine()
@@ -99,11 +135,21 @@ public class MainGun : MonoBehaviour
         audioSource.PlayOneShot(rifleReloadClip);
         yield return new WaitForSeconds(reloadTime);
         isReloading = false;
-        currentMagazineAmmo = defaultMagazineSize;
+        if(allAmmo >= 5f)
+        {
+            allAmmo -= defaultMagazineSize - currentMagazineAmmo;
+            currentMagazineAmmo = defaultMagazineSize;
+        }
+        else
+        {
+            currentMagazineAmmo = allAmmo;
+            allAmmo = 0f;
+        }
     }
 
     void Shoot()
     {
+        muzzleFlash.Play();
         currentMagazineAmmo--;
         shotTime = Time.time;
 
@@ -113,6 +159,8 @@ public class MainGun : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
 
+            GameObject effectInstance = Instantiate(impact, hit.point, Quaternion.LookRotation(hit.normal));
+            Destroy(effectInstance, 1.5f);
 
             Target target = hit.transform.GetComponent<Target>();
             if (target != null)
