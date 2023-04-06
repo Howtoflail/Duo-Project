@@ -15,6 +15,7 @@ public class MainGun : MonoBehaviour
     [SerializeField] private AudioClip rifleReloadClip;
     [SerializeField] private ParticleSystem muzzleFlash;
     [SerializeField] private Light muzzleLight;
+    [SerializeField] private GameObject impact;
 
     private Text ammoText;
     private GameObject ammoTextObject;
@@ -93,9 +94,9 @@ public class MainGun : MonoBehaviour
 
     IEnumerator CockingCoroutine()
     {
-        float cockingTime = rifleCockClip.length;
+        float cockingTime = shotgunCockClip.length;
 
-        audioSource.PlayOneShot(rifleCockClip);
+        audioSource.PlayOneShot(shotgunCockClip);
         yield return new WaitForSeconds(cockingTime);
         isCocking = false;
     }*/
@@ -157,6 +158,8 @@ public class MainGun : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
 
+            GameObject effectInstance = Instantiate(impact, hit.point, Quaternion.LookRotation(hit.normal));
+            Destroy(effectInstance, 1.5f);
 
             Target target = hit.transform.GetComponent<Target>();
             if (target != null)
