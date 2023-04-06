@@ -46,6 +46,10 @@ public class ThrowObject : MonoBehaviour
         Invoke(nameof(ResetThrow), throwCooldown);
 
     }
+    public void Throw(float delayThrow)
+    {
+        Invoke(nameof(Throw), delayThrow);
+    }
 
     private void ResetThrow()
     {

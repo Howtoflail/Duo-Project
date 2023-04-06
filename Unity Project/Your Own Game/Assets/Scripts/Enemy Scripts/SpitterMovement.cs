@@ -7,6 +7,7 @@ public class SpitterMovement : EnemyMovement
 {
     //attacksss
     ThrowObject thrower;
+    public float throwDelay;
     //Animation
     private float currentSpeed;
     private Vector3 previousPosition;
@@ -88,8 +89,7 @@ public class SpitterMovement : EnemyMovement
 
         if(!alreadyAttacked)
         {
-
-            thrower.Throw();
+            thrower.Throw(throwDelay);
             animator.SetBool("IsAttacking", true);
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
