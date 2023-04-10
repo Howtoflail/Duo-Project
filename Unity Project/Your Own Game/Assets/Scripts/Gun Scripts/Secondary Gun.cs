@@ -22,11 +22,11 @@ public class SecondaryGun : MonoBehaviour
     public Camera fpsCam;
     private AudioSource audioSource;
 
-    private float nextTimeToFire = 0f;
+    public float nextTimeToFire = 0f;
     private readonly float defaultMagazineSize = 2f;
     private float currentMagazineAmmo = 0f;
     private float allAmmo = 12f;
-    private bool isReloading = false;
+    public bool isReloading = false;
     private bool isCocking = false;
 
     private float shotTime = 0f;

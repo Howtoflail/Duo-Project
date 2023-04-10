@@ -22,11 +22,11 @@ public class MainGun : MonoBehaviour
     public Camera fpsCam;
     private AudioSource audioSource;
 
-    private float nextTimeToFire = 0f;
+    public float nextTimeToFire = 0f;
     private readonly float defaultMagazineSize = 5f;
     private float currentMagazineAmmo = 0f;
     private float allAmmo = 20f;
-    private bool isReloading = false;
+    public bool isReloading = false;
     private bool isCocking = false;
 
     private float shotTime = 0f;
@@ -64,7 +64,6 @@ public class MainGun : MonoBehaviour
             nextTimeToFire = Time.time + fireRate;
             Shoot();
             
-
             //play audio
             float currentAudioClipDuration = rifleShotClip.length;
             audioSource.clip = rifleShotClip;
