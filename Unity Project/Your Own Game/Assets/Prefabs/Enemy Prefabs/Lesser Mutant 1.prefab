@@ -1372,7 +1372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7c9175fe0565d446ad999562c003a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 9
+  health: 20
   deathAnimationDuration: 2
 --- !u!114 &2135056254682959895
 MonoBehaviour:

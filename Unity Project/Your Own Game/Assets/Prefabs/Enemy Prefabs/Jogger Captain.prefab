@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 6440586979848092021}
   - component: {fileID: 6440586979848092009}
   - component: {fileID: 6440586979848092013}
-  - component: {fileID: 6214760044076206786}
-  - component: {fileID: 8341191088792562844}
+  - component: {fileID: 5278907974197659055}
   m_Layer: 0
   m_Name: Jogger Captain
   m_TagString: Untagged
@@ -115,9 +114,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7c9175fe0565d446ad999562c003a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 9
+  health: 30
   deathAnimationDuration: 2
---- !u!114 &6214760044076206786
+--- !u!114 &5278907974197659055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,7 +125,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7438847296154602908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cb49da9e46441e498c310bbe8df76fa, type: 3}
+  m_Script: {fileID: 11500000, guid: bcebda04daf86464fb900992bb0065bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 6440586979848092021}
@@ -138,36 +137,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 15
+  walkPointRange: 10
   timeBetweenAttacks: 2
-  sightRange: 100
-  attackRange: 1
-  playerInSightRange: 0
-  playerInAttackRange: 0
---- !u!114 &8341191088792562844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7438847296154602908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cb49da9e46441e498c310bbe8df76fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 6440586979848092021}
-  player: {fileID: 0}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 128
-  walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 15
-  timeBetweenAttacks: 2
-  sightRange: 100
+  sightRange: 75
   attackRange: 1
   playerInSightRange: 0
   playerInAttackRange: 0

@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 2950784944372784281}
   - component: {fileID: 2950784944372784285}
   - component: {fileID: 2859090514748436274}
-  - component: {fileID: 167506076078641001}
+  - component: {fileID: 7630644525272686454}
   m_Layer: 0
   m_Name: Jogger
   m_TagString: Untagged
@@ -628,7 +628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7c9175fe0565d446ad999562c003a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 9
+  health: 20
   deathAnimationDuration: 2
 --- !u!114 &2859090514748436274
 MonoBehaviour:
@@ -637,7 +637,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634486491677419628}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cb49da9e46441e498c310bbe8df76fa, type: 3}
   m_Name: 
@@ -657,7 +657,7 @@ MonoBehaviour:
   attackRange: 1
   playerInSightRange: 0
   playerInAttackRange: 0
---- !u!114 &167506076078641001
+--- !u!114 &7630644525272686454
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -666,10 +666,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1634486491677419628}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cb49da9e46441e498c310bbe8df76fa, type: 3}
+  m_Script: {fileID: 11500000, guid: bcebda04daf86464fb900992bb0065bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 2950784944372784261}
+  agent: {fileID: 6440586979848092021, guid: 3f6d2e3496d5ea44186308d8cc556a59, type: 3}
   player: {fileID: 0}
   whatIsGround:
     serializedVersion: 2
@@ -678,9 +678,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 15
+  walkPointRange: 10
   timeBetweenAttacks: 2
-  sightRange: 100
+  sightRange: 75
   attackRange: 1
   playerInSightRange: 0
   playerInAttackRange: 0

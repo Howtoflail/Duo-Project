@@ -1158,7 +1158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7c9175fe0565d446ad999562c003a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 9
+  health: 50
   deathAnimationDuration: 2
 --- !u!114 &6323667532278506774
 MonoBehaviour:
@@ -1184,7 +1184,7 @@ MonoBehaviour:
   walkPointRange: 10
   timeBetweenAttacks: 2
   sightRange: 25
-  attackRange: 2
+  attackRange: 3
   playerInSightRange: 0
   playerInAttackRange: 0
 --- !u!1 &2684406046402009577
