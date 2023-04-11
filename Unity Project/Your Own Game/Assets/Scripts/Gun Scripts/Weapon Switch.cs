@@ -110,13 +110,13 @@ public class WeaponSwitch : MonoBehaviour
             rigBuilder.Build();
             animator.Rebind();
         }
-        if(Input.GetKeyDown(KeyCode.Alpha3) && knife.activeSelf == false)
+        /*if(Input.GetKeyDown(KeyCode.Alpha3) && knife.activeSelf == false)
         {
             //add check for knife here
-            /*if (Time.time < rifleReference.nextTimeToFire)
+            *//*if (Time.time < rifleReference.nextTimeToFire)
             {
                 return;
-            }*/
+            }*//*
 
             rifle.SetActive(false);
             shotgun.SetActive(false);
@@ -142,6 +142,6 @@ public class WeaponSwitch : MonoBehaviour
 
             rigBuilder.Build();
             animator.Rebind();
-        }
+        }*/
     }
 }

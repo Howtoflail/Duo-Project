@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.39873087, g: 0.21859252, b: 0.16930324, a: 1}
+  m_IndirectSpecularColor: {r: 0.3987335, g: 0.21859264, b: 0.16930276, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5830,6 +5830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalMaxSpawns: 8
+  totalMaxSpawns: 11
   prefabEnemy: {fileID: 3216244388862957385, guid: eab063cff3ff9cb46bb44947f685a33e, type: 3}
   countMaxEnemies: 5
   delaySpawn: 3
@@ -12095,7 +12096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 937259c2738833b469d9392efe00c21d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalMaxEnemies: 25
+  totalMaxEnemies: 40
 --- !u!1 &603727912
 GameObject:
   m_ObjectHideFlags: 0
@@ -14877,7 +14878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd5eb40408aab441940951f4ee1d1df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 100
 --- !u!1 &699939085 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6021130860072050869, guid: 64de9ea2578c78745910e8c69f068f04, type: 3}
@@ -19292,6 +19293,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2978083100375887750, guid: 0b4251038576a2a4ebdb3e753ec5423f, type: 3}
+      propertyPath: m_Color.b
+      value: 0.107547104
+      objectReference: {fileID: 0}
+    - target: {fileID: 2978083100375887750, guid: 0b4251038576a2a4ebdb3e753ec5423f, type: 3}
+      propertyPath: m_Color.g
+      value: 0.24748357
+      objectReference: {fileID: 0}
+    - target: {fileID: 2978083100375887750, guid: 0b4251038576a2a4ebdb3e753ec5423f, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2978083101158246963, guid: 0b4251038576a2a4ebdb3e753ec5423f, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -33269,7 +33282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a2ee9ad98de4be4b82a24c976e6eba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalMaxSpawns: 2
+  totalMaxSpawns: 5
   prefabEnemy: {fileID: 7438847296154602908, guid: 3f6d2e3496d5ea44186308d8cc556a59, type: 3}
   countMaxEnemies: 1
   delaySpawn: 3
@@ -37638,7 +37651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.8490566, g: 0.8490566, b: 0.8490566, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -38972,12 +38985,24 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 214676687, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 332593418, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400361815, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 469922087, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 757153743, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 997052491, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
@@ -38992,9 +39017,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1743359464, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1805043184, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2100311170, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 88056299927823200, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: damage
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 538371796535502473, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: damage
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 953891427924075941, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
       propertyPath: playOnAwake
@@ -39016,6 +39057,10 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1007046468647068824, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1796621997559424309, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -39026,7 +39071,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1796621997559424309, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.36
+      value: -2.628942
       objectReference: {fileID: 0}
     - target: {fileID: 1796621997559424309, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -39074,7 +39119,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1796621998301829255, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
       propertyPath: mouseSensitivity
-      value: 10
+      value: 155
+      objectReference: {fileID: 0}
+    - target: {fileID: 1796621999094198837, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: bobRunAmount
+      value: 0.0056
       objectReference: {fileID: 0}
     - target: {fileID: 2250220268250225035, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
       propertyPath: playOnAwake
