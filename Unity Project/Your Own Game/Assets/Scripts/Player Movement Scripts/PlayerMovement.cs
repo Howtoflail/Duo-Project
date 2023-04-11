@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private Animator animator;
+
     public CharacterController controller;
     public float movementSpeed = 10f;
     public float runningSpeed = 15f;
@@ -22,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         isGrounded = false;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -36,8 +39,8 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        
         Vector3 move = transform.right * x + transform.forward * z;
+        //animator.SetFloat("Speed", move.magnitude);
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -49,7 +52,6 @@ public class PlayerMovement : MonoBehaviour
             isRunning = false;
             controller.Move(move * movementSpeed * Time.deltaTime);
         }
-        
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
