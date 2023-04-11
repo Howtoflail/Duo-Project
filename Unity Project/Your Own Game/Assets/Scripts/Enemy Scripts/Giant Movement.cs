@@ -89,7 +89,7 @@ public class GiantMovement : EnemyMovement
 
         if (!alreadyAttacked)
         {
-            var target = player.GetComponent<Target>();
+            var target = player.GetComponent<PlayerTarget>();
             target.TakeDamage(10f);
             animator.SetBool("IsAttacking", true);
             alreadyAttacked = true;

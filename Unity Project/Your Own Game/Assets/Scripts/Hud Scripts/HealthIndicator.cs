@@ -9,12 +9,12 @@ public class HealthIndicator : MonoBehaviour
     GameObject player; 
 
     private float health = 0;
-    Target target;
+    PlayerTarget target;
     Text healthText;
     void Start()
     {
         player = GameObject.Find("Player");
-        target = player.GetComponent<Target>();
+        target = player.GetComponent<PlayerTarget>();
         healthText = GetComponent<Text>();
     }
 

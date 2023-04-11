@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TotalEnemies : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class TotalEnemies : MonoBehaviour
     private int enemiesRemaining;
     private int enemiesSpawned = 0;
     private bool spawnEnemy = true;
+    
+    private int enemiesKilled = 0;
 
     void Start()
     {
@@ -21,6 +24,11 @@ public class TotalEnemies : MonoBehaviour
         if (enemiesSpawned >= totalMaxEnemies)
         {
             spawnEnemy = false;
+        }
+
+        if(enemiesKilled >= totalMaxEnemies)
+        {
+            SceneManager.LoadScene("Game End");
         }
     }
 
@@ -38,6 +46,7 @@ public class TotalEnemies : MonoBehaviour
     {
         enemiesSpawned--;
         enemiesRemaining--;
+        enemiesKilled++;
     }
 
     public int GetEnemiesRemaining()

@@ -5829,7 +5829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a2ee9ad98de4be4b82a24c976e6eba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalMaxSpawns: 2
+  totalMaxSpawns: 8
   prefabEnemy: {fileID: 3216244388862957385, guid: eab063cff3ff9cb46bb44947f685a33e, type: 3}
   countMaxEnemies: 5
   delaySpawn: 3
@@ -12095,7 +12095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 937259c2738833b469d9392efe00c21d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalMaxEnemies: 10
+  totalMaxEnemies: 25
 --- !u!1 &603727912
 GameObject:
   m_ObjectHideFlags: 0
@@ -14865,7 +14865,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1796621997559424311, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
   m_PrefabInstance: {fileID: 1957092655}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &695581541
+--- !u!114 &695581535
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14874,11 +14874,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 695581534}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7c9175fe0565d446ad999562c003a2a, type: 3}
+  m_Script: {fileID: 11500000, guid: bcd5eb40408aab441940951f4ee1d1df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 250
-  deathAnimationDuration: 3
+  health: 50
 --- !u!1 &699939085 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6021130860072050869, guid: 64de9ea2578c78745910e8c69f068f04, type: 3}
@@ -20999,7 +20998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a2ee9ad98de4be4b82a24c976e6eba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalMaxSpawns: 2
+  totalMaxSpawns: 8
   prefabEnemy: {fileID: 3216244388862957385, guid: eab063cff3ff9cb46bb44947f685a33e, type: 3}
   countMaxEnemies: 5
   delaySpawn: 3
@@ -38199,7 +38198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a2ee9ad98de4be4b82a24c976e6eba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalMaxSpawns: 2
+  totalMaxSpawns: 8
   prefabEnemy: {fileID: 3216244388862957385, guid: eab063cff3ff9cb46bb44947f685a33e, type: 3}
   countMaxEnemies: 5
   delaySpawn: 3
@@ -39073,6 +39072,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1796621998301829255, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: mouseSensitivity
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2250220268250225035, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
       propertyPath: playOnAwake
       value: 0
@@ -39107,7 +39110,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1796621997559424311, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 695581541}
+      addedObject: {fileID: 695581535}
   m_SourcePrefab: {fileID: 100100000, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
 --- !u!1001 &1958001454
 PrefabInstance:
@@ -41541,7 +41544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a2ee9ad98de4be4b82a24c976e6eba7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalMaxSpawns: 2
+  totalMaxSpawns: 8
   prefabEnemy: {fileID: 3216244388862957385, guid: eab063cff3ff9cb46bb44947f685a33e, type: 3}
   countMaxEnemies: 5
   delaySpawn: 3

@@ -31,6 +31,7 @@ public class Target : MonoBehaviour
         health -= damage;
         if (health <= 0f && !isDead)
         {
+            health = 0;
             animator.SetTrigger("Die");
             gameObject.GetComponent<NavMeshAgent>().isStopped = true;
             Debug.Log("DEAD");
