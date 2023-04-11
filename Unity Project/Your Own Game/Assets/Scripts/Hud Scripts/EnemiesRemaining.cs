@@ -13,7 +13,7 @@ public class EnemiesRemaining : MonoBehaviour
     Text enemiesText;
     void Start()
     {
-        managerObject = GameObject.Find("EnemiesManager");
+        managerObject = GameObject.Find("GameManager");
         totalEnemies = managerObject.GetComponent<TotalEnemies>();
         enemiesText = GetComponent<Text>();
     }
@@ -22,6 +22,6 @@ public class EnemiesRemaining : MonoBehaviour
     void Update()
     {
         enemiesRemaining = totalEnemies.GetEnemiesRemaining();
-        enemiesText.text = "Enemies Remaining : " + totalEnemies.ToString();
+        enemiesText.text = "Enemies Remaining : " + enemiesRemaining;
     }
 }

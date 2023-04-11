@@ -8,6 +8,8 @@ public class TotalEnemies : MonoBehaviour
     public int totalMaxEnemies;
     private int enemiesRemaining;
     private int enemiesSpawned = 0;
+    private bool spawnEnemy = true;
+
     void Start()
     {
         enemiesRemaining = totalMaxEnemies;
@@ -16,20 +18,30 @@ public class TotalEnemies : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (enemiesSpawned >= totalMaxEnemies)
+        {
+            spawnEnemy = false;
+        }
     }
-    
-    public void RemoveEnemy()
+
+    public bool CanSpawnEnemy()
     {
-        enemiesRemaining--;
+        return spawnEnemy;
     }
+
     public void SpawnEnemy()
     {
         enemiesSpawned++;
     }
 
+    public void RemoveEnemy()
+    {
+        enemiesSpawned--;
+        enemiesRemaining--;
+    }
+
     public int GetEnemiesRemaining()
     {
-        return enemiesRemaining;
+        return enemiesSpawned;
     }
 }

@@ -43,7 +43,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        managerObject = GameObject.Find("EnemiesManager");
+        managerObject = GameObject.Find("GameManager");
         totalEnemies = managerObject.GetComponent<TotalEnemies>();
         centerOfBox = transform.position;
         startSpawnDelay += Time.time;
@@ -61,7 +61,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemiesWithDelay()
     {
-        if (Time.time >= timeNextSpawn && transform.childCount < countMaxEnemies && totalSpawns <= totalMaxSpawns && totalEnemies.GetEnemiesRemaining() > 0)
+        if (Time.time >= timeNextSpawn && transform.childCount < countMaxEnemies && totalSpawns <= totalMaxSpawns && totalEnemies.CanSpawnEnemy())
         {
             totalEnemies.SpawnEnemy();
             timeNextSpawn = Time.time + delaySpawn;

@@ -1,4 +1,4 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -7,14 +7,19 @@ public class Target : MonoBehaviour
 {
     [SerializeField]
     private float health = 50f;
-    [SerializeField] private float deathAnimationDuration = 3f;
+
+    [SerializeField]
+    private float deathAnimationDuration = 3f;
     private Animator animator;
 
     private EnemyMovement enemyMovement;
-    
+    private GameObject managerObject;
+    TotalEnemies totalEnemies;
 
     private void Awake()
     {
+        managerObject = GameObject.Find("GameManager");
+        totalEnemies = managerObject.GetComponent<TotalEnemies>();
         animator = GetComponent<Animator>();
         enemyMovement = GetComponent<EnemyMovement>();
     }
@@ -34,6 +39,7 @@ public class Target : MonoBehaviour
     void Die()
     {
         Destroy(gameObject, deathAnimationDuration);
+        totalEnemies.RemoveEnemy();
     }
 
     public float GetHealth()
