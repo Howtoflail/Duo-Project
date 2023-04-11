@@ -16,6 +16,8 @@ public class Target : MonoBehaviour
     private GameObject managerObject;
     TotalEnemies totalEnemies;
 
+    private bool isDead = false;
+
     private void Awake()
     {
         managerObject = GameObject.Find("GameManager");
@@ -27,7 +29,7 @@ public class Target : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health -= damage;
-        if (health <= 0f)
+        if (health <= 0f && !isDead)
         {
             animator.SetTrigger("Die");
             gameObject.GetComponent<NavMeshAgent>().isStopped = true;
@@ -39,6 +41,7 @@ public class Target : MonoBehaviour
     void Die()
     {
         Destroy(gameObject, deathAnimationDuration);
+        isDead = true;
         totalEnemies.RemoveEnemy();
     }
 

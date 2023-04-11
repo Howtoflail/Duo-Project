@@ -5837,7 +5837,7 @@ MonoBehaviour:
   boxHeight: 3
   boxWidth: 5
   boxLength: 5
-  startSpawnDelay: 0
+  startSpawnDelay: 2
 --- !u!1001 &280112326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12095,7 +12095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 937259c2738833b469d9392efe00c21d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalMaxEnemies: 6
+  totalMaxEnemies: 10
 --- !u!1 &603727912
 GameObject:
   m_ObjectHideFlags: 0
@@ -21007,7 +21007,7 @@ MonoBehaviour:
   boxHeight: 3
   boxWidth: 5
   boxLength: 5
-  startSpawnDelay: 0
+  startSpawnDelay: 4
 --- !u!1001 &1070530709
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38207,7 +38207,7 @@ MonoBehaviour:
   boxHeight: 3
   boxWidth: 5
   boxLength: 5
-  startSpawnDelay: 0
+  startSpawnDelay: 1
 --- !u!1001 &1890016151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38997,6 +38997,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 953891427924075941, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 954170256680600541, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 954330454930080173, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 954369633234704393, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 954423609693669345, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1796621997559424309, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -39053,9 +39073,33 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2250220268250225035, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7340390123269750795, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103080500250265604, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103358711605718652, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103799911311395444, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103899654252825656, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103988889183114192, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -41505,7 +41549,7 @@ MonoBehaviour:
   boxHeight: 3
   boxWidth: 5
   boxLength: 5
-  startSpawnDelay: 0
+  startSpawnDelay: 3
 --- !u!1001 &2082143437
 PrefabInstance:
   m_ObjectHideFlags: 0
