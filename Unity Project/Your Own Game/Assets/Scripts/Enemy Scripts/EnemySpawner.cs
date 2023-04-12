@@ -9,7 +9,10 @@ public class EnemySpawner : MonoBehaviour
 
     //Serializable Fields
     [SerializeField]
+    private bool startSpawnOnStart;
+    [SerializeField]
     public int totalMaxSpawns;
+
     [SerializeField]
     GameObject prefabEnemy;
 
@@ -31,28 +34,28 @@ public class EnemySpawner : MonoBehaviour
     private float startSpawnDelay;
 
     //PRIVATE
-    private GameObject managerObject; 
+    private GameObject managerObject;
     private TotalEnemies totalEnemies;
-
 
     private int totalSpawns = 0;
     private List<GameObject> enemies = new List<GameObject>();
     private float timeNextSpawn;
     private Vector3 positionNextSpawn;
     private Quaternion rotationNextSpawn;
+    private bool playerInRange = false;
 
-    void Start()
+    private void Start()
     {
         managerObject = GameObject.Find("GameManager");
         totalEnemies = managerObject.GetComponent<TotalEnemies>();
         centerOfBox = transform.position;
         startSpawnDelay += Time.time;
+        playerInRange = startSpawnOnStart;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
         if (Time.time >= startSpawnDelay)
         {
             SpawnEnemiesWithDelay();
@@ -61,7 +64,13 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemiesWithDelay()
     {
-        if (Time.time >= timeNextSpawn && transform.childCount < countMaxEnemies && totalSpawns <= totalMaxSpawns && totalEnemies.CanSpawnEnemy())
+        if (
+            Time.time >= timeNextSpawn
+            && transform.childCount < countMaxEnemies
+            && totalSpawns <= totalMaxSpawns
+            && totalEnemies.CanSpawnEnemy()
+            && playerInRange
+        )
         {
             totalEnemies.SpawnEnemy();
             timeNextSpawn = Time.time + delaySpawn;
@@ -87,5 +96,10 @@ public class EnemySpawner : MonoBehaviour
         enemies.Add(newEnemy);
         newEnemy.transform.parent = gameObject.transform;
         newEnemy.transform.position = randomPosition;
+    }
+
+    public void PlayerInRange()
+    {
+        playerInRange = true;
     }
 }
