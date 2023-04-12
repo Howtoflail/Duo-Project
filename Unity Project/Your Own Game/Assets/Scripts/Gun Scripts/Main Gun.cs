@@ -175,4 +175,9 @@ public class MainGun : MonoBehaviour
             }
         }
     }
+
+    public void AddAmmo(float ammoToAdd)
+    {
+        allAmmo += ammoToAdd;
+    }
 }

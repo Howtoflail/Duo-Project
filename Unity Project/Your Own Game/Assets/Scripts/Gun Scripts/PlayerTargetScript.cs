@@ -31,4 +31,9 @@ public class PlayerTarget : MonoBehaviour
     {
         return health;
     }
+
+    public void GainHealth(float healthToGain)
+    {
+        health += healthToGain;
+    }
 }
