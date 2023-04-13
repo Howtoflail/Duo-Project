@@ -22,4 +22,9 @@ public class Gui : MonoBehaviour
     {
         
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Start Screen");
+    }
 }

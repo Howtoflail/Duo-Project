@@ -154,7 +154,7 @@ public class MainGun : MonoBehaviour
 
         RaycastHit hit;
         Debug.DrawRay(fpsCam.transform.position, fpsCam.transform.forward, Color.green, 10, false);
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
+        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range, 2))
         {
             Debug.Log(hit.transform.name);
 

@@ -1,11 +1,11 @@
 Model Information:
-* title:	Civil War Cannon
-* source:	https://sketchfab.com/3d-models/civil-war-cannon-77642765da02400cbc8db58b5532ff9e
-* author:	Zack_Hawley (https://sketchfab.com/Zack_Hawley)
+* title:	Log (photogrammetrised)
+* source:	https://sketchfab.com/3d-models/log-photogrammetrised-9438e6da442d4f848368104b7c83666a
+* author:	DJMiddi (https://sketchfab.com/DJMiddi)
 
 Model License:
 * license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 * requirements:	Author must be credited. Commercial use is allowed.
 
 If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
-This work is based on "Civil War Cannon" (https://sketchfab.com/3d-models/civil-war-cannon-77642765da02400cbc8db58b5532ff9e) by Zack_Hawley (https://sketchfab.com/Zack_Hawley) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+This work is based on "Log (photogrammetrised)" (https://sketchfab.com/3d-models/log-photogrammetrised-9438e6da442d4f848368104b7c83666a) by DJMiddi (https://sketchfab.com/DJMiddi) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

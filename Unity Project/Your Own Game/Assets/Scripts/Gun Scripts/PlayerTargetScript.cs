@@ -12,6 +12,8 @@ public class PlayerTarget : MonoBehaviour
 
     [SerializeField]
     private GameObject flashObject;
+    [SerializeField]
+    private float flashDuration;
 
     private void Awake() 
     {
@@ -20,7 +22,7 @@ public class PlayerTarget : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        StartCoroutine(ShowAndHideFlash(flashObject, 1f));
+        StartCoroutine(ShowAndHideFlash(flashObject, flashDuration));
         health -= damage;
         if (health <= 0f && !isDead)
         {
