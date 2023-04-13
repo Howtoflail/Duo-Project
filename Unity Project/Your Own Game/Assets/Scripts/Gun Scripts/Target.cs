@@ -6,6 +6,9 @@ using UnityEngine.AI;
 public class Target : MonoBehaviour
 {
     [SerializeField]
+    private bool playDeathSounds;
+
+    [SerializeField]
     private float health = 50f;
 
     [SerializeField]
@@ -18,12 +21,20 @@ public class Target : MonoBehaviour
 
     private bool isDead = false;
 
+    [SerializeField]
+    AudioClip[] deathSounds;
+    AudioSource audioSource;
+
     private void Awake()
     {
         managerObject = GameObject.Find("GameManager");
         totalEnemies = managerObject.GetComponent<TotalEnemies>();
         animator = GetComponent<Animator>();
         enemyMovement = GetComponent<EnemyMovement>();
+        if (playDeathSounds)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
     }
 
     public void TakeDamage(float damage)
@@ -41,6 +52,11 @@ public class Target : MonoBehaviour
 
     void Die()
     {
+        if (playDeathSounds)
+        {
+            audioSource.clip = deathSounds[Random.Range(0, deathSounds.Length)];
+            audioSource.Play();
+        }
         Destroy(gameObject, deathAnimationDuration);
         isDead = true;
         totalEnemies.RemoveEnemy();

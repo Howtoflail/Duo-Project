@@ -10,10 +10,17 @@ public class PlayerTarget : MonoBehaviour
     private float health = 50f;
     private bool isDead = false;
 
-    private void Awake() { }
+    [SerializeField]
+    private GameObject flashObject;
+
+    private void Awake() 
+    {
+        flashObject.SetActive(false);
+    }
 
     public void TakeDamage(float damage)
     {
+        StartCoroutine(ShowAndHideFlash(flashObject, 1f));
         health -= damage;
         if (health <= 0f && !isDead)
         {
@@ -35,5 +42,12 @@ public class PlayerTarget : MonoBehaviour
     public void GainHealth(float healthToGain)
     {
         health += healthToGain;
+    }
+
+    IEnumerator ShowAndHideFlash(GameObject screenFlash, float delay)
+    {
+        screenFlash.SetActive(true);
+        yield return new WaitForSeconds(delay);
+        screenFlash.SetActive(false);
     }
 }

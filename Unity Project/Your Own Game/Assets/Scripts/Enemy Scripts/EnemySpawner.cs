@@ -84,8 +84,8 @@ public class EnemySpawner : MonoBehaviour
     {
         Vector3 newPosition = new Vector3(0, 0, 0);
         newPosition.x = Random.Range(centerOfBox.x - boxWidth, centerOfBox.x + boxWidth);
-        newPosition.z = Random.Range(centerOfBox.z - boxWidth, centerOfBox.z + boxLength);
-        newPosition.y = Random.Range(centerOfBox.y - boxWidth, centerOfBox.y + boxHeight);
+        newPosition.z = Random.Range(centerOfBox.z - boxLength, centerOfBox.z + boxLength);
+        newPosition.y = Random.Range(centerOfBox.y - boxHeight, centerOfBox.y + boxHeight);
         return newPosition;
     }
 

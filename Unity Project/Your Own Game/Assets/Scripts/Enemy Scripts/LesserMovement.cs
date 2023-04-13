@@ -31,11 +31,19 @@ public class LesserMovement : EnemyMovement
     public bool playerInSightRange,
         playerInAttackRange;
 
+    [SerializeField]
+    AudioSource audioSource;
+    private float clipLength;
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+        clipLength = audioSource.clip.length;
+        audioSource.time = Random.Range(0, clipLength);
+        audioSource.Play();
     }
 
     // Update is called once per frame

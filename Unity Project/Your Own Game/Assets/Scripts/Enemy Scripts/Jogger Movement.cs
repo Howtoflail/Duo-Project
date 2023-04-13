@@ -29,12 +29,19 @@ public class JoggerMovement : EnemyMovement
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    [SerializeField]
+    AudioSource audioSource;
+    private float clipLength;
+
     private void Awake()
     {
-        thrower = GetComponent<ThrowObject>();
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+        clipLength = audioSource.clip.length;
+        audioSource.time = Random.Range(0, clipLength);
+        audioSource.Play();
     }
 
     // Update is called once per frame
