@@ -15,11 +15,36 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
+    [SerializeField] private Camera fpsCamera;
+    [SerializeField] private Transform leftHandTargetKar;
+    [SerializeField] private Transform rightHandTargetKar;
+    [SerializeField] private Transform leftHandTargetShot;
+    [SerializeField] private Transform rightHandTargetShot;
     // public float rollSpeed = 100f;
 
     Vector3 velocity;
     bool isGrounded;
     bool isRunning;
+
+    public float x;
+    public float z;
+
+   /* void OnAnimatorIK(int layerIndex)
+    {
+        //body weight might need changing to 1f
+        animator.SetLookAtWeight(1f, 0f, 1f, .5f, .5f);
+        Ray lookAtRay = new Ray(transform.position, fpsCamera.transform.forward);
+        animator.SetLookAtPosition(lookAtRay.GetPoint(25));
+        animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
+        animator.SetIKPosition(AvatarIKGoal.RightHand, rightHandTargetShot.position);
+        animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
+        animator.SetIKPosition(AvatarIKGoal.LeftHand, leftHandTargetShot.position);
+    }*/
+
+    void LateUpdate()
+    {
+        
+    }
 
     void Start()
     {
@@ -36,22 +61,32 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2f;
         }
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        x = Input.GetAxis("Horizontal");
+        z = Input.GetAxis("Vertical");
 
         Vector3 move = transform.right * x + transform.forward * z;
         //animator.SetFloat("Speed", move.magnitude);
 
+        if(x != 0 || z != 0) 
+        {
+            isRunning = false;
+            controller.Move(move * movementSpeed * Time.deltaTime);
+            animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
         if (Input.GetKey(KeyCode.LeftShift))
         {
             isRunning = true;
             controller.Move(move * runningSpeed * Time.deltaTime);
         }
-        else
+        /*else
         {
             isRunning = false;
             controller.Move(move * movementSpeed * Time.deltaTime);
-        }
+        }*/
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {

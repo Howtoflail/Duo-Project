@@ -24,6 +24,7 @@ public class Target : MonoBehaviour
     [SerializeField]
     AudioClip[] deathSounds;
     AudioSource audioSource;
+    public bool isHitByKnife = false;
 
     private void Awake()
     {

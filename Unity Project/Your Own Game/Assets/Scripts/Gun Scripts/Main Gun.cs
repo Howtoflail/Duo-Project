@@ -10,14 +10,17 @@ public class MainGun : MonoBehaviour
     [SerializeField] private float range = 100f;
     [SerializeField] private float fireRate = 2.2f;
     [SerializeField] private float impactForce = 30f;
+    [SerializeField] private float zoom = 10f;
     [SerializeField] private AudioClip rifleShotClip;
     [SerializeField] private AudioClip rifleCockClip;
     [SerializeField] private AudioClip rifleReloadClip;
     [SerializeField] private ParticleSystem muzzleFlash;
     [SerializeField] private Light muzzleLight;
     [SerializeField] private GameObject impact;
+    [SerializeField] private Image reloadBar;
+    [SerializeField] private Image barFillImage;
 
-    private Text ammoText;
+    [SerializeField] private Text ammoText;
     private GameObject ammoTextObject;
     public Camera fpsCam;
     private AudioSource audioSource;
@@ -31,15 +34,24 @@ public class MainGun : MonoBehaviour
 
     private float shotTime = 0f;
     private float waitTime = 3f;
+    private float reloadTime;
 
     //Input - later
     //private bool fireButton = false;
     void Start()
     {
+        reloadTime = rifleReloadClip.length;
         audioSource = GetComponent<AudioSource>();
         currentMagazineAmmo = defaultMagazineSize;
         ammoTextObject = GameObject.Find("Canvas/Ammo");
-        ammoText = ammoTextObject.GetComponent<Text>();
+        //ammoText = ammoTextObject.GetComponent<Text>();
+    }
+
+    void OnEnable()
+    {
+        ammoText.gameObject.SetActive(true);
+        reloadBar.gameObject.SetActive(false);
+        barFillImage.gameObject.SetActive(false);
     }
 
     void Update()
@@ -79,6 +91,15 @@ public class MainGun : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && currentMagazineAmmo < 5 && allAmmo > 0f)
         {
             Reload();
+        }
+
+        if(Input.GetKey(KeyCode.Mouse1))
+        {
+            fpsCam.fieldOfView = zoom;
+        }
+        else
+        {
+            fpsCam.fieldOfView = 60f;
         }
     }
 
@@ -120,6 +141,30 @@ public class MainGun : MonoBehaviour
         }
     }
 
+    IEnumerator FillReloadBarCoroutine()
+    {
+        reloadBar.gameObject.SetActive(true);
+        barFillImage.gameObject.SetActive(true);
+
+        float fillTime = 0f;
+        float targetFillAmount = 1f;
+        float fillSpeed = targetFillAmount / reloadTime;
+        float fillAmount = 0f;
+        while (fillTime < reloadTime)
+        {
+            fillAmount = fillSpeed * fillTime;
+            barFillImage.fillAmount = fillAmount;
+            yield return null;
+            fillTime += Time.deltaTime;
+
+        }
+        fillAmount = 0f;
+        barFillImage.fillAmount = fillAmount;
+
+        reloadBar.gameObject.SetActive(false);
+        barFillImage.gameObject.SetActive(false);
+    }
+
     //This coroutine is placed in order to register the need to reload even when the gunshot clip/animation is not done playing
     IEnumerator WaitAndReloadCoroutine(float remainingTime) 
     {
@@ -129,9 +174,8 @@ public class MainGun : MonoBehaviour
 
     IEnumerator ReloadCoroutine()
     {
-        float reloadTime = rifleReloadClip.length;
-
         audioSource.PlayOneShot(rifleReloadClip);
+        StartCoroutine(FillReloadBarCoroutine());
         yield return new WaitForSeconds(reloadTime);
         isReloading = false;
         if(allAmmo >= 5f)
