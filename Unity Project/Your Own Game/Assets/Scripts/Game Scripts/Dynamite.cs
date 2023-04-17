@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Dynamite : MonoBehaviour
 {
@@ -30,6 +32,7 @@ public class Dynamite : MonoBehaviour
         if (isPlaced)
         {
             outline.enabled = false;
+            SceneManager.LoadScene("Game End");
         }
         else
         {

@@ -40,6 +40,7 @@ public class Target : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        Debug.Log("got hit");
         health -= damage;
         if (health <= 0f && !isDead)
         {
