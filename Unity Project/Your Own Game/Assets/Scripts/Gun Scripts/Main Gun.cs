@@ -224,4 +224,5 @@ public class MainGun : MonoBehaviour
     {
         allAmmo += ammoToAdd;
     }
+
 }

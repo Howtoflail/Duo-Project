@@ -61,6 +61,7 @@ public class JoggerMovement : EnemyMovement
         if(playerInAttackRange && playerInSightRange) AttackingPlayer();
     }
     
+    
 
     private void Patroling()
     {
