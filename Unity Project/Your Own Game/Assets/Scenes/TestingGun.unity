@@ -798,6 +798,22 @@ PrefabInstance:
       propertyPath: barFillImage
       value: 
       objectReference: {fileID: 785349569}
+    - target: {fileID: 352927383, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1023517371, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1278311203, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 5ca472677180a89458780ed20bc348a0, type: 2}
+    - target: {fileID: 1278311203, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b440586955579c9488d733ab511ecf55, type: 2}
     - target: {fileID: 88056299927823200, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
       propertyPath: ammoText
       value: 
@@ -870,8 +886,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    - target: {fileID: 1796621997666359932, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: lengthInSec
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250220268250225035, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: lengthInSec
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323078299579833247, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.5509972
+      objectReference: {fileID: 0}
+    - target: {fileID: 7323078299579833247, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.56886333
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6266465986858213267, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 1108860563, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+    - {fileID: 1857401962, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+    - {fileID: 997052491, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+    - {fileID: 189381095, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
+    - {fileID: 1805043184, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5986ac9b5d5b83145b84a43b52f3e4bf, type: 3}

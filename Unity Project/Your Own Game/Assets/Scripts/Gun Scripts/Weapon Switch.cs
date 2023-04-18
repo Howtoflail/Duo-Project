@@ -10,11 +10,7 @@ public class WeaponSwitch : MonoBehaviour
     [SerializeField] GameObject knife;
     [SerializeField] GameObject leftHandIKShot;
     [SerializeField] GameObject rightHandIKShot;
-    [SerializeField] GameObject leftHandIKRifle;
-    [SerializeField] GameObject rightHandIKRifle;
-    [SerializeField] GameObject rightHandIKKnife;
     [SerializeField] GameObject secondHandGrabShot;
-    [SerializeField] GameObject secondHandGrabRifle;
     [SerializeField] GameObject leftHandHintShot;
     [SerializeField] GameObject rightHandHintShot;
     [SerializeField] GameObject leftHandHintRifle;
@@ -72,24 +68,8 @@ public class WeaponSwitch : MonoBehaviour
             shotgun.SetActive(false);
             knife.SetActive(false);
             rifle.SetActive(true);
-            //Disable all constraints for shotgun AND KNIFE
-            /*leftHandIKShot.SetActive(false);
-            rightHandIKShot.SetActive(false);
-            secondHandGrabShot.SetActive(false);
-            leftHandHintShot.SetActive(false);
-            rightHandHintShot.SetActive(false);
 
-            rightHandIKKnife.SetActive(false);
-            rightHandHintKnife.SetActive(false);
-
-            //Set contraints for rifle to active
-            leftHandIKRifle.SetActive(true);
-            rightHandIKRifle.SetActive(true);
-            secondHandGrabRifle.SetActive(true);
-            leftHandHintRifle.SetActive(true);
-            rightHandHintRifle.SetActive(true);*/
-
-            //Trying to properly switch the rigging
+            //Reseting all constraints and attaching them again
             leftHandTwoBoneIKShot.Reset();
             leftHandTwoBoneIKShot.data.root = leftArm.transform;
             leftHandTwoBoneIKShot.data.mid = leftForeArm.transform;
@@ -127,23 +107,8 @@ public class WeaponSwitch : MonoBehaviour
             rifle.SetActive(false);
             knife.SetActive(false);
             shotgun.SetActive(true);
-            //Disable all constraints for rifle AND KNIFE
-            /*leftHandIKRifle.SetActive(false);
-            rightHandIKRifle.SetActive(false);
-            secondHandGrabRifle.SetActive(false);
-            leftHandHintRifle.SetActive(false);
-            rightHandHintRifle.SetActive(false);
 
-            rightHandIKKnife.SetActive(false);
-            rightHandHintKnife.SetActive(false);
-
-            //Set contraints for shotgun to active
-            leftHandIKShot.SetActive(true);
-            rightHandIKShot.SetActive(true);
-            secondHandGrabShot.SetActive(true);
-            leftHandHintShot.SetActive(true);
-            rightHandHintShot.SetActive(true);*/
-
+            //Reseting all constraints and attaching them again
             leftHandTwoBoneIKShot.Reset();
             leftHandTwoBoneIKShot.data.root = leftArm.transform;
             leftHandTwoBoneIKShot.data.mid = leftForeArm.transform;
@@ -186,29 +151,9 @@ public class WeaponSwitch : MonoBehaviour
             shotgun.SetActive(false);
             knife.SetActive(true);
 
-            //disable shotgun and rifle iks and enable knife ik
-            //disable second hand grab and no left hand ik needed
-            /*leftHandIKRifle.SetActive(false);
-            rightHandIKRifle.SetActive(false);
-            secondHandGrabRifle.SetActive(false);
-            leftHandHintRifle.SetActive(false);
-            rightHandHintRifle.SetActive(false);
-
-            leftHandIKShot.SetActive(false);
-            rightHandIKShot.SetActive(false);
-            secondHandGrabShot.SetActive(false);
-            leftHandHintShot.SetActive(false);
-            rightHandHintShot.SetActive(false);
-
-            //enable knife ik
-            rightHandIKKnife.SetActive(true);
-            rightHandHintKnife.SetActive(true);*/
-
+            //Reseting all constraints and attaching them again
+            //No left hand needed since knife is in right hand
             leftHandTwoBoneIKShot.Reset();
-            /*            leftHandTwoBoneIKShot.data.root = leftArm.transform;
-                        leftHandTwoBoneIKShot.data.mid = leftForeArm.transform;
-                        leftHandTwoBoneIKShot.data.tip = leftHand.transform;
-                        leftHandTwoBoneIKShot.data.target =*/
             rightHandTwoBoneIKShot.Reset();
             rightHandTwoBoneIKShot.data.root = rightArm.transform;
             rightHandTwoBoneIKShot.data.mid = rightForeArm.transform;
