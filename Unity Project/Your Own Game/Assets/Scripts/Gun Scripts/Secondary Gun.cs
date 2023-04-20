@@ -209,8 +209,10 @@ public class SecondaryGun : MonoBehaviour
         {
             Debug.DrawRay(fpsCam.transform.position, fpsCam.transform.forward + addedPosition, Color.red, 15f);
 
-            GameObject effectInstance = Instantiate(impact, hit.point, Quaternion.LookRotation(hit.normal));
-            Destroy(effectInstance, 1.5f);
+            GameObject impactEffectInstance = Instantiate(impact, hit.point, Quaternion.LookRotation(hit.normal));
+            ParticleSystem impactEffectParticle = impactEffectInstance.GetComponent<ParticleSystem>();
+            impactEffectParticle.Play();
+            Destroy(impactEffectInstance, 1.5f);
 
             Target target = hit.transform.GetComponent<Target>();
             if (target != null)
